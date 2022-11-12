@@ -27,7 +27,7 @@ class TranslateFragment : Fragment() {
             override fun afterTextChanged(p0: Editable?) {}
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                binding.tiEtDecText.setText(cipher(p0.toString(), 3))
+                binding.tiEtDecText.setText(cipher(p0.toString(), binding.etOffset.text.toString().toInt()))
             }
         })
     }

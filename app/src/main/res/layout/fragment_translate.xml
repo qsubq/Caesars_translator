@@ -6,12 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".view.screen.main.TranslateFragment">
 
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_offset"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="318dp"
+        android:layout_marginBottom="10dp"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/ti_layout_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:inputType="number"/>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_layout_text"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="350dp"
         android:layout_height="200dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="88dp"
         android:paddingBottom="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -23,8 +39,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/text_for_translate"
-            android:textColorHint="#757575"
-            android:inputType="textMultiLine"/>
+            android:inputType="textMultiLine"
+            android:textColorHint="#757575" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <View
@@ -32,7 +48,7 @@
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="1dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
