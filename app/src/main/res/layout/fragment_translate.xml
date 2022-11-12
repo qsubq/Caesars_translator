@@ -11,7 +11,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="350dp"
         android:layout_height="200dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="76dp"
         android:paddingBottom="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -22,8 +22,9 @@
             android:id="@+id/ti_et_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Text for translate"
-            android:textColorHint="#757575" />
+            android:hint="@string/text_for_translate"
+            android:textColorHint="#757575"
+            android:inputType="textMultiLine"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <View
@@ -31,7 +32,7 @@
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="1dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +59,8 @@
             android:clickable="false"
             android:cursorVisible="false"
             android:focusable="false"
-            android:hint="Translated text"
+            android:hint="@string/translated_text"
             android:textColorHint="#757575" />
     </com.google.android.material.textfield.TextInputLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
