@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/translateFragment"
-        android:name="com.example.caesarstranslator.view.screen.main.TranslateFragment"
+        android:name="com.example.caesarstranslator.view.screen.translate.TranslateFragment"
         android:label="fragment_translate"
         tools:layout="@layout/fragment_translate" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.caesarstranslator.view.screen.main
+package com.example.caesarstranslator.view.screen.translate
 
 import android.os.Bundle
 import android.text.Editable
@@ -6,6 +6,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.caesarstranslator.databinding.FragmentTranslateBinding
 
@@ -27,7 +28,11 @@ class TranslateFragment : Fragment() {
             override fun afterTextChanged(p0: Editable?) {}
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                binding.tiEtDecText.setText(cipher(p0.toString(), binding.etOffset.text.toString().toInt()))
+                if(binding.etOffset.text.isNullOrEmpty()){
+                    binding.layoutOffset.helperText = "Should contain number"
+                }else{
+                    binding.tiEtDecText.setText(cipher(p0.toString(), binding.etOffset.text.toString().toInt()))
+                }
             }
         })
     }
