@@ -6,8 +6,9 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
+import com.example.caesarstranslator.R
 import com.example.caesarstranslator.databinding.FragmentTranslateBinding
 
 
@@ -28,13 +29,24 @@ class TranslateFragment : Fragment() {
             override fun afterTextChanged(p0: Editable?) {}
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if(binding.etOffset.text.isNullOrEmpty()){
+                if (binding.etOffset.text.isNullOrEmpty()) {
                     binding.layoutOffset.helperText = "Should contain number"
-                }else{
-                    binding.tiEtDecText.setText(cipher(p0.toString(), binding.etOffset.text.toString().toInt()))
+                } else {
+
+                    binding.tiEtDecText.setText(
+                        cipher(
+                            p0.toString(),
+                            binding.etOffset.text.toString().toInt()
+                        )
+                    )
                 }
             }
         })
+
+        binding.imgChange.setOnClickListener {
+            val rotateAnim = AnimationUtils.loadAnimation(requireActivity(), R.anim.rotate_anim)
+            binding.imgChange.startAnimation(rotateAnim)
+        }
     }
 
     private fun cipher(message: String?, offset: Int): String {
