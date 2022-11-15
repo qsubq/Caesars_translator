@@ -39,6 +39,7 @@ class TranslateFragment : Fragment() {
                             binding.etOffset.text.toString().toInt()
                         )
                     )
+                    binding.layoutOffset.helperText = null
                 }
             }
         })
@@ -46,7 +47,31 @@ class TranslateFragment : Fragment() {
         binding.imgChange.setOnClickListener {
             val rotateAnim = AnimationUtils.loadAnimation(requireActivity(), R.anim.rotate_anim)
             binding.imgChange.startAnimation(rotateAnim)
+
+
         }
+
+        binding.etOffset.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun afterTextChanged(p0: Editable?) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if (binding.etOffset.text.isNullOrEmpty()) {
+                    binding.layoutOffset.helperText = "Should contain number"
+                } else {
+                    if(!binding.tiEtText.text.isNullOrEmpty()){
+                        binding.tiEtDecText.setText(
+                            cipher(
+                                p0.toString(),
+                                binding.etOffset.text.toString().toInt()
+                            )
+                        )
+                    }
+
+                    binding.layoutOffset.helperText = null
+                }
+            }
+        })
     }
 
     private fun cipher(message: String?, offset: Int): String {
