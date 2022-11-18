@@ -33,12 +33,20 @@ class TranslateFragment : Fragment() {
                     binding.layoutOffset.helperText = "Should contain number"
                 } else {
 
-                    binding.tiEtDecText.setText(
-                        cipher(
-                            p0.toString(),
-                            binding.etOffset.text.toString().toInt()
+                    when (binding.tvTop.text) {
+                        getString(R.string.decrypted) -> binding.tiEtDecText.setText(
+                            cipher(
+                                p0.toString(),
+                                binding.etOffset.text.toString().toInt()
+                            )
                         )
-                    )
+                        getString(R.string.encrypted) -> binding.tiEtDecText.setText(
+                            cipher(
+                                p0.toString(),
+                                26 - (binding.etOffset.text.toString().toInt() % 26)
+                            )
+                        )
+                    }
                     binding.layoutOffset.helperText = null
                 }
             }
@@ -48,7 +56,19 @@ class TranslateFragment : Fragment() {
             val rotateAnim = AnimationUtils.loadAnimation(requireActivity(), R.anim.rotate_anim)
             binding.imgChange.startAnimation(rotateAnim)
 
+            when (binding.tvTop.text) {
+                getString(R.string.decrypted) -> {
+                    binding.tvTop.text = getString(R.string.encrypted)
+                    binding.tvBot.text = getString(R.string.decrypted)
+                    binding.tiEtText.text = binding.tiEtDecText.text
+                }
 
+                getString(R.string.encrypted) -> {
+                    binding.tvTop.text = getString(R.string.decrypted)
+                    binding.tvBot.text = getString(R.string.encrypted)
+                    binding.tiEtText.text = binding.tiEtDecText.text
+                }
+            }
         }
 
         binding.etOffset.addTextChangedListener(object : TextWatcher {
@@ -59,13 +79,23 @@ class TranslateFragment : Fragment() {
                 if (binding.etOffset.text.isNullOrEmpty()) {
                     binding.layoutOffset.helperText = "Should contain number"
                 } else {
-                    if(!binding.tiEtText.text.isNullOrEmpty()){
-                        binding.tiEtDecText.setText(
-                            cipher(
-                                p0.toString(),
-                                binding.etOffset.text.toString().toInt()
+                    if (!binding.tiEtText.text.isNullOrEmpty()) {
+
+                        when (binding.tvTop.text) {
+                            getString(R.string.decrypted) -> binding.tiEtDecText.setText(
+                                cipher(
+                                    p0.toString(),
+                                    binding.etOffset.text.toString().toInt()
+                                )
                             )
-                        )
+                            getString(R.string.encrypted) -> binding.tiEtDecText.setText(
+                                cipher(
+                                    p0.toString(),
+                                    26 - (binding.etOffset.text.toString().toInt() % 26)
+                                )
+                            )
+                        }
+
                     }
 
                     binding.layoutOffset.helperText = null

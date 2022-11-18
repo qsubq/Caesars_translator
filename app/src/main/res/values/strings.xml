@@ -5,4 +5,6 @@
     <string name="translated_text">Translated text</string>
     <string name="text_for_translate">Text for translate</string>
     <string name="offset">Offset</string>
+    <string name="decrypted">Decrypted</string>
+    <string name="encrypted">Encrypted</string>
 </resources>
