@@ -131,6 +131,29 @@
             android:clickable="false"
             android:cursorVisible="false"
             android:focusable="false" />
+
     </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_copy_bot"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="52dp"
+        android:src="@drawable/ic_baseline_content_copy_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.854"
+        app:layout_constraintStart_toEndOf="@+id/tv_bot"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_copy_top"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="12dp"
+        android:src="@drawable/ic_baseline_content_copy_24"
+        app:layout_constraintBottom_toTopOf="@+id/ti_layout_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.854"
+        app:layout_constraintStart_toEndOf="@+id/tv_top" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,9 @@
 package com.example.caesarstranslator.view.screen.translate
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context.CLIPBOARD_SERVICE
+import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -7,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.caesarstranslator.R
 import com.example.caesarstranslator.databinding.FragmentTranslateBinding
@@ -97,11 +102,16 @@ class TranslateFragment : Fragment() {
                         }
 
                     }
-
                     binding.layoutOffset.helperText = null
                 }
             }
         })
+        binding.imgCopyBot.setOnClickListener {
+            textCopyThenPost(binding.tiEtDecText.text.toString())
+        }
+        binding.imgCopyTop.setOnClickListener {
+            textCopyThenPost(binding.tiEtText.text.toString())
+        }
     }
 
     private fun cipher(message: String?, offset: Int): String {
@@ -117,6 +127,15 @@ class TranslateFragment : Fragment() {
             }
         }
         return result.toString()
+    }
+
+    private fun textCopyThenPost(textCopied: String) {
+        val clipboardManager =
+            requireActivity().getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+        clipboardManager.setPrimaryClip(ClipData.newPlainText("", textCopied))
+        // Only show a toast for Android 12 and lower.
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.S_V2)
+            Toast.makeText(requireActivity(), getString(R.string.Copied), Toast.LENGTH_SHORT).show()
     }
 
 }

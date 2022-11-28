@@ -7,4 +7,5 @@
     <string name="offset">Offset</string>
     <string name="decrypted">Decrypted</string>
     <string name="encrypted">Encrypted</string>
+    <string name="Copied">Copied</string>
 </resources>
